@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>VcModal的demo</title>
+  <script src="http://g.tbcdn.cn/kissy/k/1.4.8/seed-min.js" charset="utf-8"></script>
+</head>
+<body>
+<h2>VcModal的demo</h2>
+
+<div>
+  <button id="modal01">简单用法</button>
+  <pre>
+      //用法一:简单用法
+      var modal01 = new VcModal({
+        title: '删除标的物',
+        content: '删除标的物将不能恢复。'
+      });
+
+      Node.one("#modal01").on("click", function () {
+        modal01.show();
+      });
+  </pre>
+</div>
+<hr/>
+<div>
+  <button id="modal02">简单用法，设置dailog出现效果</button>
+  <p>目前pc有3种效果，分别是：fadeInDown（默认效果）、fadeInBlowUp、fadeInShrink； 手机有一种效果：flipOverAtBottom； 这些效果兼容ie9+。</p>
+  <pre>
+      //用法二:调整dialog出现的效果
+      var modal02 = new VcModal({
+        effect: 'fadeInShrink',
+        title: '删除标的物',
+        content: '删除标的物将不能恢复。'
+      });
+
+      Node.one("#modal02").on("click", function () {
+        modal02.show();
+      });
+  </pre>
+</div>
+<hr/>
+<div>
+  <button id="modal03">确认&取消</button>
+  <p></p>
+  <pre>
+    var modal03 = new VcModal({
+      effect: 'fadeInShrink',
+      cls: 'ouyang',
+      title: "订单确认",
+      content: '<span class="info"></span>你的订单号是123456',
+      confirmBtn: "确认"
+    });
+
+    Node.one("#modal03").on("click", function () {
+      modal03.show(function(){
+        this.modal.one('.info').text('粟一，你好！');
+      })
+        .then(function () {
+          //q
+          alert('你点击的是确认按钮')
+        }, function () {
+          alert('你点击的是取消按钮')
+        });
+    });
+  </pre>
+</div>
+<hr/>
+<div>
+  <button id="modal04">确认&取消</button>
+  <p>不通过promise的then，而是通过modal绑定的方式来设定“确认”和“取消”按钮的行为</p>
+  <pre>
+    var modal04 = new VcModal({
+      title: "订单确认",
+      content: '<span class="info"></span>你的订单号是123456',
+      confirmBtn: "确认"
+    });
+
+    modal04.on('confirm.modal', function(event){
+      var $modal = event.modal;
+      alert('你点击的是确认按钮');
+    }).on('cancel.modal', function(event){
+      alert('你点击的是取消按钮');
+    });
+
+    Node.one("#modal04").on("click", function () {
+      modal04.show(function(){
+        this.modal.one('.info').text('粟一，你好！');
+      })
+    });
+  </pre>
+</div>
+<hr/>
+<div>
+  <button id="modal05">确认&取消</button>
+  <p>点击“确认”不隐藏modal， 隐藏行为你可以控制。</p>
+  <pre>
+    var modal05 = new VcModal({
+      title: "订单确认",
+      content: '两次确定按钮才消失',
+      confirmBtn: "确认"
+    }), i =0;
+    modal05.on('confirm.modal', function(event){
+      i++;
+      if(i < 2){
+        modal05.closeAutoHide();
+        return;
+      }
+      console.log("2次之后dailog消失。");
+    });
+
+    Node.one("#modal05").on("click", function () {
+      modal05.show()
+    });
+  </pre>
+</div>
+
+<script>
+
+  var S = KISSY;
+  if (S.Config.debug) {
+    var debugPath = "http://localhost:8787/";
+    S.config({
+      packages: [
+        {
+          name: "kg/vc-modal/1.0.0",
+          path: debugPath,
+          charset: "utf-8"
+        }
+      ]
+    });
+  }
+
+  S.use('kg/vc-modal/1.0.0/index, node', function (S, VcModal, Node) {
+
+    //用法一:简单用法
+    var modal01 = new VcModal({
+      title: '删除标的物',
+      content: '删除标的物将不能恢复。'
+    });
+
+    Node.one("#modal01").on("click", function () {
+      modal01.show();
+    });
+
+
+    //用法二:简单用法
+    var modal02 = new VcModal({
+      effect: 'fadeInShrink',
+      title: '删除标的物',
+      content: '删除标的物将不能恢复。'
+    });
+
+    Node.one("#modal02").on("click", function () {
+      modal02.show();
+    });
+
+
+
+
+    //用法三:
+    var modal03 = new VcModal({
+      effect: 'fadeInShrink',
+      cls: 'mymodal',
+      title: "订单确认",
+      content: '<span class="info"></span>你的订单号是123456',
+      confirmBtn: "确认"
+    });
+
+    Node.one("#modal03").on("click", function () {
+      modal03.show(function(){
+        this.modal.one('.info').text('粟一，你好！');
+      })
+        .then(function () {
+          //q
+          alert('你点击的是确认按钮')
+        }, function () {
+          alert('你点击的是取消按钮')
+        });
+    });
+
+
+    //用法四:
+    var modal04 = new VcModal({
+      title: "订单确认",
+      content: '<span class="info"></span>你的订单号是123456',
+      confirmBtn: "确认"
+    });
+    modal04.on('confirm.modal', function(event){
+      var $modal = event.modal;
+      alert('你点击的是确认按钮');
+    }).on('cancel.modal', function(event){
+      alert('你点击的是取消按钮');
+    });
+
+    Node.one("#modal04").on("click", function () {
+      modal04.show(function(){
+        this.modal.one('.info').text('粟一，你好！');
+      })
+    });
+
+    //用法五:
+    var modal05 = new VcModal({
+      title: "订单确认",
+      content: '两次确定按钮才消失',
+      confirmBtn: "确认"
+    }), i =0;
+    modal05.on('confirm.modal', function(event){
+      i++;
+      if(i < 2){
+        modal05.closeAutoHide();
+        return;
+      }
+      console.log("2次之后dailog消失。");
+    });
+
+    Node.one("#modal05").on("click", function () {
+      modal05.show()
+    });
+
+  });
+</script>
+</body>
+</html>
+

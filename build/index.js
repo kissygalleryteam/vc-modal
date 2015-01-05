@@ -1,4 +1,4 @@
-KISSY.add('kg/vc-modal/1.0.0/index',["./index.css","base","node","node","event","promise","ua","kg/xtemplate/3.3.3/runtime","./content"],function(S ,require, exports, module) {
+KISSY.add('kg/vc-modal/1.1.0/index',["./index.css","base","node","node","event","promise","ua","kg/xtemplate/3.3.3/runtime","./content"],function(S ,require, exports, module) {
  //加载CSS
 require('./index.css');
 

@@ -1,10 +1,9 @@
-KISSY.add('kg/vc-modal/1.1.0/index',["./index.css","base","node","node","event","promise","ua","kg/xtemplate/3.3.3/runtime","./content"],function(S ,require, exports, module) {
+KISSY.add('kg/vc-modal/1.0.4/index',["./index.css","base","node","event","promise","ua","kg/xtemplate/3.3.3/runtime","./content"],function(S ,require, exports, module) {
  //加载CSS
 require('./index.css');
 
 var Base = require('base');
 var Node = require('node');
-var $ = require('node').all;
 var Event = require('event');
 var Promise = require('promise');
 var UA = require('ua');
@@ -114,6 +113,14 @@ module.exports = Base.extend({
       self.autoHide = true;
     });
 
+    //增加对enter键支持
+    this.$modal.on('keypress', function(event){
+        var $focusDom = Node.one(document.activeElement);
+        if($focusDom.parent('.vc-modal')){
+          document.activeElement.click();//获得焦点的DOM触发click
+        }
+    });
+
   },
 
 
@@ -135,20 +142,18 @@ module.exports = Base.extend({
     try{
       beforeShowFun && beforeShowFun.call(this);
     }catch(e){
-      console.error(e);
     }
 
+    $body.addClass("modal-show");
     this.$modal.css("display", "block");
 
     document.body.offsetWidth;
     this.$modal.addClass("in");
-
-    $body.addClass("modal-show");
+    this.$modal.getDOMNode().focus();
 
     try{
       afterShowFun && afterShowFun.call(this);
     }catch(e){
-      console.error(e);
     }
 
 
@@ -171,6 +176,7 @@ module.exports = Base.extend({
     var self = this;
     if(UA.ie && UA.ie <=8){
       this.$modal.removeClass('in').removeAttr('style');
+      $body.removeClass("modal-show");
     }else{
       this.$modal.removeClass('in');
       setTimeout(function(){

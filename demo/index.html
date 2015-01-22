@@ -123,7 +123,7 @@
     S.config({
       packages: [
         {
-          name: "kg/vc-modal/1.1.0",
+          name: "kg/vc-modal/1.0.4",
           path: debugPath,
           charset: "utf-8"
         }
@@ -131,7 +131,7 @@
     });
   }
 
-  S.use('kg/vc-modal/1.1.0/index, node', function (S, VcModal, Node) {
+  S.use('kg/vc-modal/1.0.4/index, node', function (S, VcModal, Node) {
 
     //用法一:简单用法
     var modal01 = new VcModal({
@@ -169,7 +169,7 @@
 
     Node.one("#modal03").on("click", function () {
       modal03.show(function(){
-        this.modal.one('.info').text('粟一，你好！');
+        this.modal.one('.info').text('XX 你好！');
       })
         .then(function () {
           //q

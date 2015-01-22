@@ -1,10 +1,13 @@
 ## 综述
 
-VcModal。
+VcModal是简单的模拟对话框组件。
+
+![http://gtms02.alicdn.com/tps/i2/TB1DApgHXXXXXbOXXXXFvIM3VXX-434-180.png](http://gtms02.alicdn.com/tps/i2/TB1DApgHXXXXXbOXXXXFvIM3VXX-434-180.png)
+
 
 ## 初始化组件
 		
-    S.use('kg/vc-modal/1.0.0/index', function (S, VcModal) {
+    S.use('kg/vc-modal/1.1.0/index', function (S, VcModal) {
          var vc-modal = new VcModal();
     })
 

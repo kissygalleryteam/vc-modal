@@ -1,4 +1,4 @@
-KISSY.add('kg/vc-modal/1.0.3/content',[],function(S ,require, exports, module) {
+KISSY.add('kg/vc-modal/1.0.4/content',[],function(S ,require, exports, module) {
 
 
 var ret = module.exports = function content(undefined){

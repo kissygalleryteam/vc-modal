@@ -1,1 +1,0 @@
-KISSY.add("kg/vc-modal/1.1.0/lib/main",["node","base"],function(n,a,e,i){var d=(a("node").all,a("base"));i.exports=d.extend({initializer:function(){}},{ATTRS:{}})});

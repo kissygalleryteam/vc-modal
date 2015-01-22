@@ -1,4 +1,4 @@
-<div class="vc-modal{{' ' + cls}}"  tabindex="-1">
+<div class="vc-modal{{' ' + cls}}"  tabindex="1">
     <div class="modal-dialog{{' ' + effect}}">
         <div class="modal-content">
             <div class="modal-header">
@@ -15,9 +15,9 @@
                   {{{otherBtn}}}
                 {{/if}}
                 {{#if(confirmBtn)}}
-                <a class="btn btn-confirm">{{confirmBtn}}</a>
+                <a class="btn btn-confirm" tabindex="11">{{confirmBtn}}</a>
                 {{/if}}
-                <a class="btn btn-close">{{cancelBtn}}</a>
+                <a class="btn btn-close" tabindex="12">{{cancelBtn}}</a>
             </div>
         </div>
     </div>

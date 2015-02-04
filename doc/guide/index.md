@@ -1,6 +1,8 @@
 ## 综述
 
-版本1.0.4
+版本1.0.5
+
+![http://gtms01.alicdn.com/tps/i1/TB1xhnuHXXXXXcLXVXXifb32pXX-220-160.png](http://gtms01.alicdn.com/tps/i1/TB1xhnuHXXXXXcLXVXXifb32pXX-220-160.png)
 
 vc-modal组件的制作思路是满足大众化普遍的需求力求使用简单；
 
@@ -27,16 +29,16 @@ S.use('kg/vc-modal/1.0.0/index', function (S, VCModal) {
 ** 对于var modal = new VCModal(options)来说：**
 
 ### options是个object，其中属性有：
-* effect：弹窗出现的效果，非必填， 默认是’fadeInDown’，效果类似bootstrap的modal效果；
-* cls：用户自定义class， 非必填，会在组件的容器将加入这个class，方便用户定制UI；
-* title：dialog的标题，必填，对应的值会防止在.modal-title中；
-* content： dialog的内容，必填，组件直接将对应的值当做html代码直接插入.modal-body中；
-* confirmBtn: dialog的确定按钮的名称，非必填，如果不填这个属性，dailog将不会有确认按钮；
-* cancelBtn: dialog的取消按钮的名称，非必填，dialog默认有一个名叫“关闭“按钮，你可以修改这个按钮的叫法；
-* otherBtn：非必填，组件默认只支持确认和关闭按钮， 如果你一些特别的需求，你可以定制你的第N个按钮，这个属性是html代码，组件只是将代码防止在对应位置，样式和行为都由你确定。
+属性名 | 类型 | 必填 | 默认值 | 说明
+------------ | -------------| -------------| -------------| -------------
+effect | string | N | 'fadeInDown' | 弹窗出现的效果， 默认是’fadeInDown’，效果类似bootstrap的modal效果；
+cls | string | N | '' | 用户自定义class，会在组件的容器将加入这个class，方便用户定制UI；
+title | string | Y | 无 | dialog的标题，对应的值会防止在.modal-title中；
+content | string | Y | 无 | dialog的内容，组件直接将对应的值当做html代码直接插入.modal-body中；
+confirmBtn | string | N | 无 | dialog的确定按钮的名称，如果不填这个属性，dailog将不会有确认按钮；
+cancelBtn | string | N | '关闭' | dialog的取消按钮的名称，dialog默认有一个名叫“关闭“按钮，你可以修改这个按钮的叫法；
+otherBtn | string | N | 无 | 非必填，组件默认只支持确认和关闭按钮， 如果你一些特别的需求，你可以定制你的第N个按钮，这个属性是html代码，组件只是将代码防止在对应位置，样式和行为都由你确定。
 
-    ** 以上没说明数据类型的，都是字符串类型 **
-    
     ** 以上以. 开始的字符串，比如 .modal-body是指class=“modal-body”的结点 **
  
 

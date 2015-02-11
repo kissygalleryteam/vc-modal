@@ -1,4 +1,4 @@
-KISSY.add('kg/vc-modal/1.0.0/content',[],function(S ,require, exports, module) {
+KISSY.add('kg/modal/1.0.1/content',[],function(S ,require, exports, module) {
 
 
 var ret = module.exports = function content(undefined){
@@ -62,7 +62,7 @@ return buffer;
 function func11(scope, buffer, undefined) {
 var data = scope.data;
 var affix = scope.affix;
-buffer.data += '\n                <a class="btn btn-confirm">';
+buffer.data += '\n                <a class="btn btn-confirm" tabindex="11">';
 pos.line = 18;
 var id12 = ((t=(affix.confirmBtn)) !== undefined ? t:((t = data.confirmBtn) !== undefined ? t :scope.resolveLooseUp(["confirmBtn"])));
 buffer = buffer.writeEscaped(id12);
@@ -76,7 +76,7 @@ var exp1 = ' ';
 var id0 = ((t=(affix.cls)) !== undefined ? t:((t = data.cls) !== undefined ? t :scope.resolveLooseUp(["cls"])));
 exp1 = (' ')+(id0);
 buffer = buffer.writeEscaped(exp1);
-buffer.data += '"  tabindex="-1">\n    <div class="modal-dialog';
+buffer.data += '"  tabindex="1">\n    <div class="modal-dialog';
 var exp3 = ' ';
 pos.line = 2;
 var id2 = ((t=(affix.effect)) !== undefined ? t:((t = data.effect) !== undefined ? t :scope.resolveLooseUp(["effect"])));
@@ -101,7 +101,7 @@ pos.line = 17;
 pos.line = 17;
 var id13 = ((t=(affix.confirmBtn)) !== undefined ? t:((t = data.confirmBtn) !== undefined ? t :scope.resolveLooseUp(["confirmBtn"])));
 buffer = ifCommand.call(tpl, scope, {params:[id13],fn: func11}, buffer);
-buffer.data += '\n                <a class="btn btn-close">';
+buffer.data += '\n                <a class="btn btn-close" tabindex="12">';
 pos.line = 20;
 var id14 = ((t=(affix.cancelBtn)) !== undefined ? t:((t = data.cancelBtn) !== undefined ? t :scope.resolveLooseUp(["cancelBtn"])));
 buffer = buffer.writeEscaped(id14);

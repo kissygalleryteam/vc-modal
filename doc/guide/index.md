@@ -1,6 +1,6 @@
 ## 综述
 
-版本1.0.5
+版本1.0.
 
 ![http://gtms01.alicdn.com/tps/i1/TB1xhnuHXXXXXcLXVXXifb32pXX-220-160.png](http://gtms01.alicdn.com/tps/i1/TB1xhnuHXXXXXcLXVXXifb32pXX-220-160.png)
 
@@ -19,7 +19,7 @@ vc-modal组件支持无障碍操作，对键盘操作进行了有限支持。
 
 ## 初始化组件
 ```javascript
-S.use('kg/vc-modal/1.0.0/index', function (S, VCModal) {
+S.use('kg/modal/1.0.1/index', function (S, VCModal) {
     var modal = new VCModal();
 });
 ```

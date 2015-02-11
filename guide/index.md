@@ -1,25 +1,25 @@
 ## 综述
 
-版本1.0.
+版本1.0.0
 
 ![http://gtms01.alicdn.com/tps/i1/TB1xhnuHXXXXXcLXVXXifb32pXX-220-160.png](http://gtms01.alicdn.com/tps/i1/TB1xhnuHXXXXXcLXVXXifb32pXX-220-160.png)
 
-vc-modal组件的制作思路是满足大众化普遍的需求力求使用简单；
+modal组件的制作思路是满足大众化普遍的需求力求使用简单；
 
-vc-modal组件的css样式特殊性的值都很小，这一方面很容易被干扰，另一方面你可以很方便覆盖原生的样式定制你的UI；
+modal组件的css样式特殊性的值都很小，这一方面很容易被干扰，另一方面你可以很方便覆盖原生的样式定制你的UI；
 
 如果你的dialog的高度是确定，那几种效果你都可以使用；如果高度是不确定的，建议你使用默认效果， 其他几种效果要求你在show出dialog的时候设置明确的dailog高度和宽度值；
 
-vc-modal组件支持在pad和modal上使用，pc上支持到ie8+, 对于ie7-浏览器没测试， 未知支持情况。这里所说的支持ie8+并不包括动画效果。
+modal组件支持在pad和modal上使用，pc上支持到ie8+, 对于ie7-浏览器没测试， 未知支持情况。这里所说的支持ie8+并不包括动画效果。
 
 
-vc-modal组件支持无障碍操作，对键盘操作进行了有限支持。
+modal组件支持无障碍操作，对键盘操作进行了有限支持。
 
 欢迎大家反馈，对于特殊应用场景有提供了方式去扩展， 如果给你带来不便，非常抱歉，希望您能反馈并指教。
 
 ## 初始化组件
 ```javascript
-S.use('kg/modal/1.0.1/index', function (S, VCModal) {
+S.use('kg/modal/1.0.2/index', function (S, VCModal) {
     var modal = new VCModal();
 });
 ```

@@ -1,4 +1,4 @@
-KISSY.add('kg/modal/1.0.2/content-render',["./content","kg/xtemplate/3.3.3/runtime"],function(S ,require, exports, module) {
+KISSY.add('kg/modal/1.0.0/content-render',["./content","kg/xtemplate/3.3.3/runtime"],function(S ,require, exports, module) {
 
 
 var tpl = require("./content");

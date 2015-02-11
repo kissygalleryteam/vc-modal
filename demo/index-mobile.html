@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>VcModal的手机demo</title>
+  <title>Modal的手机demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <meta charset='utf-8'>
   <meta name="format-detection" content="telephone=no"/>
@@ -17,7 +17,7 @@
     S.config({
       packages:[
         {
-          name:"kg/vc-modal/1.0.5",
+          name:"kg/modal/1.0.0",
           path:debugPath,
           charset:"utf-8"
         }
@@ -25,9 +25,9 @@
     });
   }
 
-  S.use('kg/vc-modal/1.0.4/index, node', function (S, VcModal, Node) {
+  S.use('kg/modal/1.0.4/index, node', function (S, Modal, Node) {
 
-    var secondModal = new VcModal({
+    var secondModal = new Modal({
       effect: 'flipOverAtBottom',
       cls: 'mobile',
       title: "订单确认",

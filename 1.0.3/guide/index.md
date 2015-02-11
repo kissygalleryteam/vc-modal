@@ -1,42 +1,44 @@
 ## 综述
 
-版本1.0.4
+版本1.0.0
 
-vc-modal组件的制作思路是满足大众化普遍的需求力求使用简单；
+![http://gtms02.alicdn.com/tps/i2/TB1DApgHXXXXXbOXXXXFvIM3VXX-434-180.png](http://gtms02.alicdn.com/tps/i2/TB1DApgHXXXXXbOXXXXFvIM3VXX-434-180.png)
 
-vc-modal组件的css样式特殊性的值都很小，这一方面很容易被干扰，另一方面你可以很方便覆盖原生的样式定制你的UI；
+modal组件的制作思路是满足大众化普遍的需求力求使用简单；
+
+modal组件的css样式特殊性的值都很小，这一方面很容易被干扰，另一方面你可以很方便覆盖原生的样式定制你的UI；
 
 如果你的dialog的高度是确定，那几种效果你都可以使用；如果高度是不确定的，建议你使用默认效果， 其他几种效果要求你在show出dialog的时候设置明确的dailog高度和宽度值；
 
-vc-modal组件支持在pad和modal上使用，pc上支持到ie8+, 对于ie7-浏览器没测试， 未知支持情况。这里所说的支持ie8+并不包括动画效果。
+modal组件支持在pad和modal上使用，pc上支持到ie8+, 对于ie7-浏览器没测试， 未知支持情况。这里所说的支持ie8+并不包括动画效果。
 
 
-vc-modal组件支持无障碍操作，对键盘操作进行了有限支持。
+modal组件支持无障碍操作，对键盘操作进行了有限支持。
 
 欢迎大家反馈，对于特殊应用场景有提供了方式去扩展， 如果给你带来不便，非常抱歉，希望您能反馈并指教。
 
 ## 初始化组件
 ```javascript
-S.use('kg/vc-modal/1.0.0/index', function (S, VCModal) {
-    var modal = new VCModal();
+S.use('kg/modal/1.0.0/index', function (S, Modal) {
+    var modal = new Modal();
 });
 ```
 
 
 ## API
-** 对于var modal = new VCModal(options)来说：**
+** 对于var modal = new Modal(options)来说：**
 
 ### options是个object，其中属性有：
-* effect：弹窗出现的效果，非必填， 默认是’fadeInDown’，效果类似bootstrap的modal效果；
-* cls：用户自定义class， 非必填，会在组件的容器将加入这个class，方便用户定制UI；
-* title：dialog的标题，必填，对应的值会防止在.modal-title中；
-* content： dialog的内容，必填，组件直接将对应的值当做html代码直接插入.modal-body中；
-* confirmBtn: dialog的确定按钮的名称，非必填，如果不填这个属性，dailog将不会有确认按钮；
-* cancelBtn: dialog的取消按钮的名称，非必填，dialog默认有一个名叫“关闭“按钮，你可以修改这个按钮的叫法；
-* otherBtn：非必填，组件默认只支持确认和关闭按钮， 如果你一些特别的需求，你可以定制你的第N个按钮，这个属性是html代码，组件只是将代码防止在对应位置，样式和行为都由你确定。
+属性名 | 类型 | 必填 | 默认值 | 说明
+------------ | -------------| -------------| -------------| -------------
+effect | string | N | 'fadeInDown' | 弹窗出现的效果， 默认是’fadeInDown’，效果类似bootstrap的modal效果；
+cls | string | N | '' | 用户自定义class，会在组件的容器将加入这个class，方便用户定制UI；
+title | string | Y | 无 | dialog的标题，对应的值会防止在.modal-title中；
+content | string | Y | 无 | dialog的内容，组件直接将对应的值当做html代码直接插入.modal-body中；
+confirmBtn | string | N | 无 | dialog的确定按钮的名称，如果不填这个属性，dailog将不会有确认按钮；
+cancelBtn | string | N | '关闭' | dialog的取消按钮的名称，dialog默认有一个名叫“关闭“按钮，你可以修改这个按钮的叫法；
+otherBtn | string | N | 无 | 非必填，组件默认只支持确认和关闭按钮， 如果你一些特别的需求，你可以定制你的第N个按钮，这个属性是html代码，组件只是将代码防止在对应位置，样式和行为都由你确定。
 
-    ** 以上没说明数据类型的，都是字符串类型 **
-    
     ** 以上以. 开始的字符串，比如 .modal-body是指class=“modal-body”的结点 **
  
 

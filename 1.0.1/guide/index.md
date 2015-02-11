@@ -19,7 +19,7 @@ vc-modal组件支持无障碍操作，对键盘操作进行了有限支持。
 
 ## 初始化组件
 ```javascript
-S.use('kg/modal/1.0.0/index', function (S, VCModal) {
+S.use('kg/modal/1.0.1/index', function (S, VCModal) {
     var modal = new VCModal();
 });
 ```

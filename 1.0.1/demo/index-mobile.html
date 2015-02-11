@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Modal的手机demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta charset='utf-8'>
+  <meta name="format-detection" content="telephone=no"/>
+  <script src="http://g.alicdn.com/kissy/k/1.4.8/seed.js"></script>
+</head>
+<body>
+<button id="btn">确认&&取消</button>
+
+<script>
+  var S = KISSY;
+  if (S.Config.debug) {
+    var debugPath = "http://localhost:8787/";
+    S.config({
+      packages:[
+        {
+          name:"kg/modal/1.0.0",
+          path:debugPath,
+          charset:"utf-8"
+        }
+      ]
+    });
+  }
+
+  S.use('kg/modal/1.0.4/index, node', function (S, Modal, Node) {
+
+    var secondModal = new Modal({
+      effect: 'flipOverAtBottom',
+      cls: 'mobile',
+      title: "订单确认",
+      content: '<span class="info"></span>你的订单号是123456',
+      confirmBtn: "确认"
+    });
+    Node.one("#btn").on("click", function(){
+      secondModal
+        .show(function(){
+          this.modal.one('.info').text('12345');}
+      )
+        .then(function(){alert('你点击的是确认按钮')}, function(){alert('你点击的是取消按钮')});
+    });
+  });
+</script>
+</body>
+</html>

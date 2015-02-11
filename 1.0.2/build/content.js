@@ -1,4 +1,4 @@
-KISSY.add('kg/modal/1.0.2/content',[],function(S ,require, exports, module) {
+KISSY.add('kg/modal/1.0.0/content',[],function(S ,require, exports, module) {
 
 
 var ret = module.exports = function content(undefined){

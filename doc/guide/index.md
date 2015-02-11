@@ -2,7 +2,7 @@
 
 版本1.0.0
 
-![http://gtms01.alicdn.com/tps/i1/TB1xhnuHXXXXXcLXVXXifb32pXX-220-160.png](http://gtms01.alicdn.com/tps/i1/TB1xhnuHXXXXXcLXVXXifb32pXX-220-160.png)
+![http://gtms02.alicdn.com/tps/i2/TB1DApgHXXXXXbOXXXXFvIM3VXX-434-180.png](http://gtms02.alicdn.com/tps/i2/TB1DApgHXXXXXbOXXXXFvIM3VXX-434-180.png)
 
 modal组件的制作思路是满足大众化普遍的需求力求使用简单；
 
@@ -19,14 +19,14 @@ modal组件支持无障碍操作，对键盘操作进行了有限支持。
 
 ## 初始化组件
 ```javascript
-S.use('kg/modal/1.0.2/index', function (S, VCModal) {
-    var modal = new VCModal();
+S.use('kg/modal/1.0.0/index', function (S, Modal) {
+    var modal = new Modal();
 });
 ```
 
 
 ## API
-** 对于var modal = new VCModal(options)来说：**
+** 对于var modal = new Modal(options)来说：**
 
 ### options是个object，其中属性有：
 属性名 | 类型 | 必填 | 默认值 | 说明

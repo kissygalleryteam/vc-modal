@@ -1,4 +1,4 @@
-KISSY.add('kg/vc-modal/1.0.2/lib/main',["node","base"],function(S ,require, exports, module) {
+KISSY.add('kg/modal/1.0.2/lib/main',["node","base"],function(S ,require, exports, module) {
  
 var EMPTY = '';
 var $ = require('node').all;

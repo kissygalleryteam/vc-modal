@@ -27,7 +27,7 @@ kmc.config({
 kmc.server({
     port:8787,
     fixModule:true,
-    path: dest,
+    path: src,
     kissy:true
 });
 
@@ -90,7 +90,7 @@ gulp.task('mini-css', function(){
 gulp.task('less', function(){
     return gulp.src([src+'/**/*.less','!./node_modules/**/*.less'])
         .pipe(less())
-        .pipe(autoprefixer())
+      .pipe(autoprefixer([{ browsers: ['IE 8', 'IE 9', 'last 5 versions', 'Firefox 14', 'Opera 11.1'] }]))
         .pipe(gulp.dest(src));
 });
 

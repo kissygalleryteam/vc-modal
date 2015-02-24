@@ -2,17 +2,17 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <title>VcModal的demo</title>
+  <title>Modal的demo</title>
   <script src="http://g.tbcdn.cn/kissy/k/1.4.8/seed-min.js" charset="utf-8"></script>
 </head>
 <body>
-<h2>VcModal的demo</h2>
+<h2>Modal的demo</h2>
 
 <div>
   <button id="modal01">简单用法</button>
   <pre>
       //用法一:简单用法
-      var modal01 = new VcModal({
+      var modal01 = new Modal({
         title: '删除标的物',
         content: '删除标的物将不能恢复。'
       });
@@ -28,7 +28,7 @@
   <p>目前pc有3种效果，分别是：fadeInDown（默认效果）、fadeInBlowUp、fadeInShrink； 手机有一种效果：flipOverAtBottom； 这些效果兼容ie9+。</p>
   <pre>
       //用法二:调整dialog出现的效果
-      var modal02 = new VcModal({
+      var modal02 = new Modal({
         effect: 'fadeInShrink',
         title: '删除标的物',
         content: '删除标的物将不能恢复。'
@@ -44,7 +44,7 @@
   <button id="modal03">确认&取消</button>
   <p></p>
   <pre>
-    var modal03 = new VcModal({
+    var modal03 = new Modal({
       effect: 'fadeInShrink',
       cls: 'ouyang',
       title: "订单确认",
@@ -70,7 +70,7 @@
   <button id="modal04">确认&取消</button>
   <p>不通过promise的then，而是通过modal绑定的方式来设定“确认”和“取消”按钮的行为</p>
   <pre>
-    var modal04 = new VcModal({
+    var modal04 = new Modal({
       title: "订单确认",
       content: '<span class="info"></span>你的订单号是123456',
       confirmBtn: "确认"
@@ -95,7 +95,7 @@
   <button id="modal05">确认&取消</button>
   <p>点击“确认”不隐藏modal， 隐藏行为你可以控制。</p>
   <pre>
-    var modal05 = new VcModal({
+    var modal05 = new Modal({
       title: "订单确认",
       content: '两次确定按钮才消失',
       confirmBtn: "确认"
@@ -123,7 +123,7 @@
     S.config({
       packages: [
         {
-          name: "kg/vc-modal/1.0.0",
+          name: "kg/modal/1.0.0",
           path: debugPath,
           charset: "utf-8"
         }
@@ -131,10 +131,10 @@
     });
   }
 
-  S.use('kg/vc-modal/1.0.0/index, node', function (S, VcModal, Node) {
+  S.use('kg/modal/1.0.0/index, node', function (S, Modal, Node) {
 
     //用法一:简单用法
-    var modal01 = new VcModal({
+    var modal01 = new Modal({
       title: '删除标的物',
       content: '删除标的物将不能恢复。'
     });
@@ -145,7 +145,7 @@
 
 
     //用法二:简单用法
-    var modal02 = new VcModal({
+    var modal02 = new Modal({
       effect: 'fadeInShrink',
       title: '删除标的物',
       content: '删除标的物将不能恢复。'
@@ -159,8 +159,8 @@
 
 
     //用法三:
-    var modal03 = new VcModal({
-      effect: 'fadeInShrink',
+    var modal03 = new Modal({
+      effect: 'fadeInBlowUp',
       cls: 'mymodal',
       title: "订单确认",
       content: '<span class="info"></span>你的订单号是123456',
@@ -169,7 +169,7 @@
 
     Node.one("#modal03").on("click", function () {
       modal03.show(function(){
-        this.modal.one('.info').text('粟一，你好！');
+        this.modal.one('.info').text('XX 你好！');
       })
         .then(function () {
           //q
@@ -181,7 +181,7 @@
 
 
     //用法四:
-    var modal04 = new VcModal({
+    var modal04 = new Modal({
       title: "订单确认",
       content: '<span class="info"></span>你的订单号是123456',
       confirmBtn: "确认"
@@ -200,7 +200,7 @@
     });
 
     //用法五:
-    var modal05 = new VcModal({
+    var modal05 = new Modal({
       title: "订单确认",
       content: '两次确定按钮才消失',
       confirmBtn: "确认"

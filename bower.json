@@ -1,6 +1,6 @@
 {
-    "name": "vc-modal",
-    "version": "1.0.0",
+    "name": "modal",
+    "version": "1.1.0",
     "main": "index.js",
     "ignore": [
         "**/*",
@@ -8,6 +8,5 @@
         "!index.css",
         "!lib/**/*"
     ],
-    "dependencies": {
-    }
+    "dependencies": {}
 }

@@ -3,7 +3,6 @@ require('./index.css');
 
 var Base = require('base');
 var Node = require('node');
-var $ = require('node').all;
 var Event = require('event');
 var Promise = require('promise');
 var UA = require('ua');
@@ -13,6 +12,8 @@ var XTemplateRuntime = require("kg/xtemplate/3.3.3/runtime");
 
 var tpl = require('./content');
 var $ = Node.all;
+
+var modalShowNumber = 0;
 
 var _templateData = {
   effect: 'fadeInDown',
@@ -72,7 +73,7 @@ module.exports = Base.extend({
     this.renderAppend();
 
     //点击黑色区域
-    this.$modal.on("click", function(event){
+    this.$modal.on("click.modal", function(event){
       var $target = Node.one(event.target);
       if($target.hasClass('vc-modal')){
         self.hide();
@@ -80,7 +81,7 @@ module.exports = Base.extend({
     });
 
     //点击dialog的x
-    Event.delegate(this.$modal, 'click', '.close', function(event){
+    Event.delegate(this.$modal, 'click.modal', '.close', function(event){
       event.preventDefault();
       self.hide();
     });
@@ -90,7 +91,7 @@ module.exports = Base.extend({
     var closeFun = this.get('closeFun');
 
     //点击确定按钮
-    Event.delegate(this.$modal, 'click', '.btn-confirm', function(event){
+    Event.delegate(this.$modal, 'click.modal', '.btn-confirm', function(event){
       //触发确认事件(先执行)
       self.fire('confirm.modal', {modal: self.$modal});
 
@@ -102,7 +103,7 @@ module.exports = Base.extend({
     });
 
     //点击关闭按钮
-    Event.delegate(this.$modal, 'click', '.btn-close', function(event){
+    Event.delegate(this.$modal, 'click.modal', '.btn-close', function(event){
       //触发取消事件
       self.fire('cancel.modal', {modal: self.$modal});
 
@@ -111,6 +112,14 @@ module.exports = Base.extend({
         self.defer.reject();
       }
       self.autoHide = true;
+    });
+
+    //增加对enter键支持
+    this.$modal.on('keypress.modal', function(event){
+        var $focusDom = Node.one(document.activeElement);
+        if($focusDom.parent('.vc-modal')){
+          document.activeElement.click();//获得焦点的DOM触发click
+        }
     });
 
   },
@@ -134,20 +143,19 @@ module.exports = Base.extend({
     try{
       beforeShowFun && beforeShowFun.call(this);
     }catch(e){
-      console.error(e);
     }
 
+    $body.addClass("modal-show");
     this.$modal.css("display", "block");
 
     document.body.offsetWidth;
     this.$modal.addClass("in");
-
-    $body.addClass("modal-show");
+      modalShowNumber++;
+    this.$modal.getDOMNode().focus();
 
     try{
       afterShowFun && afterShowFun.call(this);
     }catch(e){
-      console.error(e);
     }
 
 
@@ -168,8 +176,10 @@ module.exports = Base.extend({
    */
   hide: function(){
     var self = this;
+      modalShowNumber--;
     if(UA.ie && UA.ie <=8){
       this.$modal.removeClass('in').removeAttr('style');
+      $body.removeClass("modal-show");
     }else{
       this.$modal.removeClass('in');
       setTimeout(function(){
@@ -184,7 +194,11 @@ module.exports = Base.extend({
    */
   closeAutoHide: function(){
     this.autoHide = false;
-  }
+  },
+
+    hasModelShow: function(){
+        return modalShowNumber;
+    }
 
 }, {
   ATTRS: {
